@@ -1,22 +1,18 @@
 
 
-
-// 1ced49a38e764f3481dfc8a45871535c
-
-
 import React, { useEffect, useState } from 'react';
 // import Card from './Card';
 import { Button } from '@mui/material';
 import NCard from './NCard';
 
 const Newsapp = () => {
-  const API_KEY = "1ced49a38e764f3481dfc8a45871535c"; 
+//   const API_KEY = "1ced49a38e764f3481dfc8a45871535c"; 
   const [search, setSearch] = useState("india");
   const [newsData, setNewsData] = useState(null);
 
   const getData = async () => {
     console.log("getData called with search term:", search); // Log when getData is called
-    const response = await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`);
+    const response = await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${import.meta.env.REACT_APP_API_KEY}`);
     if (!response) {
       console.log("getData: No response from API");
       return;
